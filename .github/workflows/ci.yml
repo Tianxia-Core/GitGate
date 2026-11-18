@@ -1,0 +1,17 @@
+# ffp: FFP-GITGATE-CI content-pipeline yaml
+name: GitGate CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+      - run: go test -v ./...
+      - run: CGO_ENABLED=0 go build -trimpath -ldflags="-s -w" -o gitgate ./cmd/gitgate
+      - run: ./gitgate cleanroom .

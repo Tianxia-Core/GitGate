@@ -1,0 +1,3 @@
+# GitGate (v1.0.0) — Freestanding Autonomous GitHub Commit, 14-Gate PR Review & Clean-Room Auto-Merge Engine (MIT)
+
+> Zero-dependency static Go CLI, composite GitHub Action, Claude Skill, and MCP server engineered by Collins Takem (RASA-X-MACHINA). Also embedded natively inside `Tianxia-Core/nimbus2` and constitutively governed by `Tianxia-Core/Build-Law`.

@@ -1,0 +1,16 @@
+# ffp: FFP-GITGATE-ACTION content-pipeline yaml
+name: "GitGate — Zero-Token 14-Gate Differential PR Review & Clean-Room Gate"
+description: "Audits GitHub PR diffs across 14 security, prompt-injection, SemVer 0.x, and Clean-Room PII/DB gates at 0 LLM token cost."
+author: "Collins Takem (RASA-X-MACHINA)"
+runs:
+  using: "composite"
+  steps:
+    - name: Set up Go
+      uses: actions/setup-go@v5
+      with:
+        go-version: "1.22"
+    - name: Build & Execute GitGate Differential Review
+      shell: bash
+      run: |
+        CGO_ENABLED=0 go build -trimpath -ldflags="-s -w" -o /tmp/gitgate "${{ github.action_path }}/cmd/gitgate"
+        git diff "${{ github.event.pull_request.base.sha }}...${{ github.event.pull_request.head.sha }}" | /tmp/gitgate review --stdin

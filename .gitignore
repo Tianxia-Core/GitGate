@@ -1,0 +1,10 @@
+/gitgate
+dist/
+*.sqlite3
+*.db
+*.xlsx
+*.xls
+*.pem
+!*.pub.pem
+.env
+!.env.example

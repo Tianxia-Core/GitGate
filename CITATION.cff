@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+title: "GitGate: Autonomous Zero-Token GitHub Commit, 14-Gate Differential PR Review & Clean-Room Auto-Merge Engine"
+version: "1.0.0"
+date-released: "2026-11-18"
+license: "MIT"
+url: "https://github.com/Tianxia-Core/GitGate"
+authors:
+  - family-names: "Takem"
+    given-names: "Collins"
+    affiliation: "RASA-X-MACHINA"
